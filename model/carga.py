@@ -2,8 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class Carga(ABC):
-    #classe abstrata
-    #o nome é fixo depois de criada a carga.
+
 
     def __init__(self, nome):
         self.__nome = nome
@@ -27,7 +26,6 @@ class Carga(ABC):
 
 
 class ArrozEmCasca(Carga):
-    # A sujeira é peso que não é arroz, então reduz o valor do frete.
     VALOR_TONELADA = 120.0
 
     def __init__(self, nome, peso_kg, percentual_sujeira):

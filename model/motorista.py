@@ -22,7 +22,6 @@ class Motorista:
         return self.__categoria
 
     def pode_dirigir_conjunto(self):
-        # cavalo mecânico com carreta exige categoria E
         return self.__categoria == "E"
 
     def __str__(self):

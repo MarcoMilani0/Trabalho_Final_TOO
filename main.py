@@ -21,7 +21,9 @@ def main():
     print(cavalo)
     print(cavalo.carga)
 
-    print("\n--- Erros de propósito ---")
+    print("Erro")
+
+    #já leva uma carga,Logo não pode levar outra
     try:
         cavalo.carregar(CargaFactory.criar("ensacado", nome="Arroz tipo 1", quantidade_sacos=100))
     except ValueError as erro:
@@ -31,22 +33,25 @@ def main():
     print("\nDepois de descarregar:")
     print(cavalo)
 
+    # Peso acima do limite de 30mil 
     try:
         cavalo.carregar(CargaFactory.criar("palete", nome="Piso", quantidade_paletes=40, peso_palete_kg=1200))
     except ValueError as erro:
         print("Erro:", erro)
 
+    # Cavalo so carrega Carga, não aceita "string"
     try:
         cavalo.carregar("string")
     except TypeError as erro:
         print("Erro:", erro)
 
+    # Soja não é um tipo de carga válido aceito no factory 
     try:
         CargaFactory.criar("soja", nome="Soja")
     except ValueError as erro:
         print("Erro:", erro)
 
-    print("\n=== Entrega (State) ===")
+    print("\nEntrega")
     cavalo.carregar(CargaFactory.criar("ensacado", nome="Arroz tipo 1", quantidade_sacos=100))
     entrega = Entrega(motorista, cavalo, "Porto Alegre")
     print(entrega)
@@ -54,6 +59,7 @@ def main():
     entrega.iniciar()
     print(entrega)
 
+    #Em trânsito só é permitido concluir
     try:
         entrega.cancelar()
     except ValueError as erro:
@@ -62,11 +68,13 @@ def main():
     entrega.concluir()
     print(entrega)
 
+    #Entregue é estado final
     try:
         entrega.iniciar()
     except ValueError as erro:
         print("Erro:", erro)
-        print("\n=== Transportadora (Singleton) ===")
+
+    print("\nTransportadora")
     transportadora = Transportadora("Transportadora Exemplo")
     print("É a mesma instância:", transportadora is Transportadora())
 
@@ -84,6 +92,7 @@ def main():
     print("Total de entregas:", len(transportadora.entregas))
     print(f"Frete das entregas concluídas: R$ {transportadora.total_frete_entregue():.2f}")
 
+    #já existe um cavalo com essa placa cadastrado, e a placa não pode se repetir
     try:
         transportadora.cadastrar_cavalo(cavalo)
     except ValueError as erro:

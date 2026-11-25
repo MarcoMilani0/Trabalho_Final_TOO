@@ -38,7 +38,6 @@ class EstadoEmTransito(EstadoEntrega):
     def concluir(self, entrega):
         entrega._mudar_estado(EstadoEntregue())
 
-
 class EstadoEntregue(EstadoEntrega):
     @property
     def nome(self):

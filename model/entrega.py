@@ -4,9 +4,6 @@ from model.estados import EstadoPendente
 
 
 class Entrega:
-    # Todos os atributos são fixos, exceto o estado, que muda pelo
-    # padrão State. O estado só é alterado pelos métodos iniciar(),
-    # concluir() e cancelar(), nunca direto de fora.
 
     def __init__(self, motorista, cavalo, destino):
         if not isinstance(motorista, Motorista):
@@ -55,7 +52,6 @@ class Entrega:
         self.__estado.cancelar(self)
 
     def _mudar_estado(self, novo_estado):
-        # uso interno: chamado pelas classes de estado
         self.__estado = novo_estado
 
     def __str__(self):

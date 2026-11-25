@@ -1,5 +1,4 @@
 class Carreta:
-    #Todos os atributos são fixos
     def __init__(self, modelo, capacidade_kg, extensao_m, eixos):
         if capacidade_kg <= 0:
             raise ValueError("A capacidade precisa ser maior que 0")
