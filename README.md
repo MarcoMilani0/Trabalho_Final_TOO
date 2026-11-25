@@ -56,7 +56,7 @@ Trabalho_Final_TOO/
 Requisito: Python 3.11 ou superior.
 
 ```bash
-git clone [https://github.com/MarcoMilani0/Trabalho_Final_TOO](https://github.com/MarcoMilani0/Trabalho_Final_TOO)
+git clone https://github.com/MarcoMilani0/Trabalho_Final_TOO
 cd Trabalho_Final_TOO
 python main.py
 ```
